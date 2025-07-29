@@ -18,33 +18,59 @@ struct ContentView3: View {
 //            Text(name)
 //        }
         
-        let people: [Person] = [Person(name: "Jayme"),   Person(name: "Air"), Person(name: "SwiftUI")]
-        
-        List(people, id: \.name) { person in
-            Text(person.name)
-        }
+        let _: [Person] = [Person(name: "Jayme"),   Person(name: "Air"), Person(name: "SwiftUI")]
         
         List {
-            HStack {
-                Image(systemName: "heart.fill")
-                Text("Hello,")
-            
-            }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
-                ViewDimensions[.leading]
-                //이미지 아래에도 구분자 넣고 싶을 때 적용
+            Section {
+                HStack {
+                    Image(systemName: "heart.fill")
+                    Text("Hello,")
+                
+                }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
+                    ViewDimensions[.leading]
+                }
+                HStack {
+                    Image(systemName: "heart")
+                    Text("World")
+                }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
+                    ViewDimensions[.leading]
+                }
+                HStack {
+                    Image(systemName: "star.fill")
+                    Text("!")
+                }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
+                    ViewDimensions[.leading]
+                }
             }
-            HStack {
-                Image(systemName: "heart")
-                Text("World")
-            }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
-                ViewDimensions[.leading]
+
+            Section {
+                HStack {
+                    Image(systemName: "heart.fill")
+                    Text("Hello,")
+                
+                }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
+                    ViewDimensions[.leading]
+                }
+                HStack {
+                    Image(systemName: "heart")
+                    Text("World")
+                }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
+                    ViewDimensions[.leading]
+                }
+                HStack {
+                    Image(systemName: "star.fill")
+                    Text("!")
+                }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
+                    ViewDimensions[.leading]
+                }
+            } header: {
+                //Header는 무조건 Uppercase로 써진다(영어 한정)
+                Text("Section header")
+            } footer: {
+                Text("Section footer")
             }
-            HStack {
-                Image(systemName: "star.fill")
-                Text("!")
-            }.alignmentGuide(.listRowSeparatorLeading) { ViewDimensions in
-                ViewDimensions[.leading]
-            }
+
+
         }
     }
 }
